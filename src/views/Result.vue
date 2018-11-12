@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <h1>This is an home page</h1>
+  <div class="result">
+    <h1>This is an result page</h1>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'home',
+  name: 'result',
   // components: {
   // }
 }
