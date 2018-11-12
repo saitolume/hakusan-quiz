@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <h1>This is an home page</h1>
+  <div class="quiz">
+    <h1>This is an quiz page</h1>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'home',
+  name: 'quiz',
   // components: {
   // }
 }
