@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <v-bottom-nav :value="true" color="light-green darken-2" dark app>
+    <v-bottom-nav :value="true" color="light-green darken-1" dark app>
       <v-btn color="white" to="/" flat>
         <span>ホーム</span>
         <v-icon>home</v-icon>

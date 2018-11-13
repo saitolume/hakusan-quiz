@@ -1,6 +1,5 @@
 <template>
   <div class="clear-list">
-    <h2>クリアリスト</h2>
   </div>
 </template>
 
@@ -11,7 +10,5 @@ export default {
 </script>
 
 <style scoped>
-h2 {
-  color: #689F38;
-}
+
 </style>
