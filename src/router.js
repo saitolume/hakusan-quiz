@@ -1,9 +1,10 @@
-import Vue    from 'vue'
-import Router from 'vue-router'
-import Home   from './views/Home.vue'
-import Area from './views/Area.vue'
+import Vue       from 'vue'
+import Router    from 'vue-router'
+import Home      from './views/Home.vue'
+import Area      from './views/Area.vue'
 import ClearList from './views/ClearList.vue'
-import Help from './views/Help.vue'
+import Help      from './views/Help.vue'
+import QrReader  from './views/QrReader.vue'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
       path: '/help',
       name: 'help',
       component: Help,
+    },
+    {
+      path: '/qr_reader',
+      name: 'qr_reader',
+      component: QrReader,
     },
     // {
     //   path: '/hoge',
