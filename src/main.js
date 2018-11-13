@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue      from 'vue'
+import App      from './App.vue'
 import firebase from 'firebase/app';
 import router   from './router'
 import store    from './store'
@@ -8,7 +8,9 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import 'vuetify/dist/vuetify.min.css'
 import './registerServiceWorker'
 
-Vue.use(Vuetify)
+Vue.use(Vuetify, {
+  iconfont: 'mdi' // 'md' || 'mdi' || 'fa' || 'fa4'
+})
 
 Vue.config.productionTip = false
 
