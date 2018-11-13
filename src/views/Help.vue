@@ -1,6 +1,5 @@
 <template>
   <div class="help">
-    <h2>ヘルプ</h2>
   </div>
 </template>
 
@@ -11,7 +10,5 @@ export default {
 </script>
 
 <style scoped>
-h2 {
-  color: #689F38;
-}
+
 </style>
