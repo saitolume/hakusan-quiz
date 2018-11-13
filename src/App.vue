@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import Footer from '@/components/Footer.vue'
-import Header from '@/components/Header.vue'
+import Footer       from '@/components/Footer.vue'
+import Header       from '@/components/Header.vue'
 import CameraButton from '@/components/CameraButton.vue'
 
 export default {
