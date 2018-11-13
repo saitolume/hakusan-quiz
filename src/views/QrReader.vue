@@ -1,6 +1,5 @@
 <template>
   <div class="qr-reader">
-    <div class="camera-area"></div>
   </div>
 </template>
 
@@ -11,10 +10,5 @@ export default {
 </script>
 
 <style scoped>
-.camera-area {
-  background-color: white;
-  margin: auto;
-  width: 300px;
-  height: 400px;
-}
+
 </style>
