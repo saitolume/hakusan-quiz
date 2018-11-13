@@ -31,5 +31,10 @@ export default {
   /* background-color: #DCEDC8; */
   color: #2c3e50;
 }
+
+.content-area {
+  margin-top: 90px;
+}
+
 /* 明るめの緑 #42b983 */
 </style>
