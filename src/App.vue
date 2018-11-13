@@ -19,7 +19,7 @@ export default {
   components: {
     Header,
     Footer,
-    CameraButton
+    CameraButton,
   }
 }
 </script>
@@ -37,6 +37,5 @@ export default {
 .content-area {
   margin-top: 90px;
 }
-
 /* 明るめの緑 #42b983 */
 </style>
