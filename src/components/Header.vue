@@ -1,8 +1,6 @@
 <template>
   <div class="header">
-    <v-toolbar>
-      <v-toolbar-title>はくさんクイズ</v-toolbar-title>
-      <v-spacer></v-spacer>
+    <v-toolbar color="light-green darken-2" height="50px" dark app>
       <v-toolbar-items>
         <v-btn flat icon large>
           <v-icon>account_circle</v-icon>
