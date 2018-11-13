@@ -1,12 +1,12 @@
 <template>
-  <div class="home">
-    <h2>ホーム</h2>
+  <div class="clear-list">
+    <h2>クリアリスト</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home',
+  name: 'ClearList',
 }
 </script>
 

@@ -1,8 +1,9 @@
 import Vue    from 'vue'
 import Router from 'vue-router'
 import Home   from './views/Home.vue'
-import Quiz   from './views/Quiz.vue'
-import Result from './views/Result.vue'
+import Area from './views/Area.vue'
+import ClearList from './views/ClearList.vue'
+import Help from './views/Help.vue'
 
 Vue.use(Router)
 
@@ -15,17 +16,21 @@ export default new Router({
       name: 'home',
       component: Home,
     },
-    // {
-      // path: '/quiz/:id',
-    //   path: 'quiz/HOGE01FUGA23PIYO45',
-    //   name: 'quiz',
-    //   component: Quiz,
-    // },
-    // {
-    //   path: '/result',
-    //   name: 'result',
-    //   component: Result,
-    // },
+    {
+      path: '/area',
+      name: 'area',
+      component: Area,
+    },
+    {
+      path: '/clear_list',
+      name: 'clear_list',
+      component: ClearList,
+    },
+    {
+      path: '/help',
+      name: 'help',
+      component: Help,
+    },
     // {
     //   path: '/hoge',
     //   name: 'hoge',
