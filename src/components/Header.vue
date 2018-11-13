@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <v-toolbar color="light-green darken-1" height="50px" dark app>
+    <v-toolbar color="#689F38" height="50px" dark app>
       <v-toolbar-items>
         <v-btn flat icon large>
           <v-icon>account_circle</v-icon>

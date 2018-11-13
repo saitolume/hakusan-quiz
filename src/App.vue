@@ -5,18 +5,21 @@
       <router-view/>
     </div>
     <Footer />
+    <CameraButton />
   </div>
 </template>
 
 <script>
 import Footer from '@/components/Footer.vue'
 import Header from '@/components/Header.vue'
+import CameraButton from '@/components/CameraButton.vue'
 
 export default {
   name: 'app',
   components: {
     Header,
-    Footer
+    Footer,
+    CameraButton
   }
 }
 </script>
@@ -28,7 +31,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  /* background-color: #DCEDC8; */
   color: #2c3e50;
 }
 
