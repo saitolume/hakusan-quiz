@@ -2,6 +2,7 @@
   <div class="qr-reader">
     <p class="one-line">Last result: <b>{{ result }}</b></p>
     <qrcode-stream @decode="onDecode" @init="$emit('init', $event)" />
+    <v-btn :to="result" v-if="result">クイズへ</v-btn>
   </div>
 </template>
 
