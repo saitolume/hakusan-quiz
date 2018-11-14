@@ -1,20 +1,24 @@
 <template>
   <div class="qr-reader">
-    <div class="camera-area"></div>
+    <p class="one-line">Last result: <b>{{ result }}</b></p>
+    <qrcode-stream @decode="onDecode" @init="$emit('init', $event)" />
+    <v-btn :to="result" v-if="result">クイズへ</v-btn>
   </div>
 </template>
 
 <script>
+import { QrcodeStream } from 'vue-qrcode-reader'
 export default {
-  name: 'QrReader',
+  components: { QrcodeStream },
+  data () {
+    return {
+      result: ''
+    }
+  },
+  methods: {
+    onDecode (result) {
+      this.result = result
+    }
+  }
 }
 </script>
-
-<style scoped>
-.camera-area {
-  background-color: white;
-  margin: auto;
-  width: 300px;
-  height: 400px;
-}
-</style>

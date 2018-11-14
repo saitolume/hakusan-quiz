@@ -8,7 +8,7 @@
 
 <style scoped>
 .camera-button {
-  position: absolute;
+  position: fixed;
   bottom: 75px;
   right: 15px;
 }
