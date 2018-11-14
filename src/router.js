@@ -5,6 +5,7 @@ import Area      from './views/Area.vue'
 import ClearList from './views/ClearList.vue'
 import Help      from './views/Help.vue'
 import QrReader  from './views/QrReader.vue'
+import Quiz      from './views/Quiz.vue'
 
 Vue.use(Router)
 
@@ -17,6 +18,7 @@ export default new Router({
     { path: '/clear_list', name: 'clear_list', component: ClearList },
     { path: '/help',       name: 'help',       component: Help },
     { path: '/qr_reader',  name: 'qr_reader',  component: QrReader },
+    { path: '/quiz',       name: 'quiz',       component: Quiz },
     // {
     //   path: '/hoge',
     //   name: 'hoge',
