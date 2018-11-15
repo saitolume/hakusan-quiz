@@ -44,6 +44,7 @@ export default {
     clearQuiz(index) {
       this.dialog = true
       if (this.quiz.choices[index].corrected === true) {
+        // ここにクイズに正解したときの処理を書く
         this.quiz.cleared = true
       }
     }
