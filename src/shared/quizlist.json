@@ -1,0 +1,26 @@
+{
+  "quiz": [
+    {
+      "number": 1,
+      "id": "",
+      "title": "白山手取川ジオパークの「ジオ」の由来は何でしょう",
+      "choice": [
+        { "id": 1, "value": "地球", "corrected": true },
+        { "id": 2, "value": "地震", "corrected": false },
+        { "id": 3, "value": "台風", "corrected": false },
+        { "id": 4, "value": "火事", "corrected": false }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "",
+      "title": "白山手取川ジオパークはいくつのエリアに分かれているでしょう",
+      "choice": [
+        { "id": 1, "value": "6", "corrected": false },
+        { "id": 2, "value": "3", "corrected": true },
+        { "id": 3, "value": "5", "corrected": false },
+        { "id": 4, "value": "4", "corrected": false }
+      ]
+    }
+  ]
+}
