@@ -1,7 +1,15 @@
 <template>
   <div class="qr-reader">
     <QrcodeStream @decode="onDecode" @init="$emit('init', $event)" />
-    <v-btn v-if="result.includes('quiz')" :to="result">クイズへ</v-btn>
+    <v-btn
+      class="link-btn"
+      v-if="result.includes('quiz')"
+      :to="result"
+      color="#689F38"
+      dark large round
+    >
+      クイズへ
+    </v-btn>
   </div>
 </template>
 
@@ -22,3 +30,9 @@ export default {
   }
 }
 </script>
+
+<style>
+a.link-btn {
+  margin: 50px;
+}
+</style>
