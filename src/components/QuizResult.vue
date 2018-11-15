@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     closeDialog() {
-      this.$emit('childs-event')
+      this.$emit('childs-event');
     }
   }
 }

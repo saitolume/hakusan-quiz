@@ -1,13 +1,13 @@
 <template>
   <div class="qr-reader">
-    <p class="one-line">Last result: <b>{{ result }}</b></p>
-    <qrcode-stream @decode="onDecode" @init="$emit('init', $event)" />
-    <v-btn :to="result" v-if="result">クイズへ</v-btn>
+    <QrcodeStream @decode="onDecode" @init="$emit('init', $event)" />
+    <v-btn v-if="result.includes('quiz')" :to="result">クイズへ</v-btn>
   </div>
 </template>
 
 <script>
 import { QrcodeStream } from 'vue-qrcode-reader'
+
 export default {
   components: { QrcodeStream },
   data () {
@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     onDecode (result) {
-      this.result = result
+      this.result = result;
     }
   }
 }
