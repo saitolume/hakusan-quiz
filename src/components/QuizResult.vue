@@ -1,22 +1,19 @@
 <template>
   <div class="quiz-result">
     <v-dialog v-model="dialog" persistent>
-      <v-card v-if="cleared">
-        <v-card-title class="headline">正解</v-card-title>
-        <v-card-text>おめでとう！10ポイントゲット！</v-card-text>
+      <v-card>
+        <div v-if="cleared">
+          <v-card-title class="headline">正解</v-card-title>
+          <v-card-text>おめでとう！10ポイントゲット！</v-card-text>
+        </div>
+        <div v-else>
+          <v-card-title class="headline">不正解</v-card-title>
+          <v-card-text>残念！ヒントを探してみよう！</v-card-text>
+        </div>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" @click="closeDialog" to="/" flat>終了する</v-btn>
-        </v-card-actions>
-      </v-card>
-
-      <v-card v-else>
-        <v-card-title class="headline">不正解</v-card-title>
-        <v-card-text>残念！ヒントを探してみよう！</v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="green darken-1" @click="closeDialog" flat>もう一度挑戦する</v-btn>
-          <v-btn color="green darken-1" @click="closeDialog" to="/" flat>終了する</v-btn>
+          <v-btn color="#689F38" @click="closeDialog" v-if="!cleared" flat>再挑戦する</v-btn>
+          <v-btn color="#689F38" @click="closeDialog" to="/" flat>終了する</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
