@@ -2,9 +2,9 @@
   <div class="quiz" data-app>
     <h2>Q.{{ quiz.number }} {{ quiz.title }}</h2>
     <v-btn
-      v-for="(index, item) in quiz.choices"
+      v-for="(item, index) in quiz.choices"
       :key="item.id"
-      @click="chengeResult(index, item)"
+      @click="chengeResult(item, index)"
       color="#689F38"
       slot="activator"
       dark large round
@@ -41,7 +41,7 @@ export default {
     }
   },
   methods: {
-    chengeResult(index, item) {
+    chengeResult(item, index) {
       this.dialog = true;
       if (this.quiz.choices[index].corrected === true) {
         this.quiz.cleared = true;
