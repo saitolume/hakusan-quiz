@@ -19,10 +19,5 @@ export default new Router({
     { path: '/help',       name: 'help',       component: Help },
     { path: '/qr_reader',  name: 'qr_reader',  component: QrReader },
     { path: '/quiz',       name: 'quiz',       component: Quiz },
-    // {
-    //   path: '/hoge',
-    //   name: 'hoge',
-    //   component: () => import(/* webpackChunkName: "hoge" */ './views/hoge.vue'),
-    // },
-  ]
+  ],
 })
