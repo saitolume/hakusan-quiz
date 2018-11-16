@@ -1,6 +1,6 @@
 <template>
   <div class="qr-reader">
-    <QrcodeStream @decode="onDecode" @init="$emit('init', $event)" />
+    <QrcodeStream class="camera-field" @decode="onDecode" @init="$emit('init', $event)" />
     <v-btn
       class="link-btn"
       v-if="result.includes('quiz')"
@@ -34,5 +34,11 @@ export default {
 <style>
 a.link-btn {
   margin: 50px;
+}
+
+.qrcode-stream__camera {
+  width: 70%;
+  height: 70%;
+  margin: auto;
 }
 </style>
