@@ -37,7 +37,8 @@ a.link-btn {
 }
 
 .qrcode-stream__camera {
-  width: 80%;
+  width: 70%;
+  height: 70%;
   margin: auto;
 }
 </style>
