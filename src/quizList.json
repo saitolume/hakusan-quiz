@@ -13,12 +13,12 @@
     },
     "31cdf80cf1d3d8b42de8": {
       "number" : 2,
-      "title": "白山に人が入るようになってから今年でおよそ何年でしょう",
+      "title": "白山に人が入るようになってから今年で約何年でしょう",
       "choices" : [
-        { "id": 1, "value": "130年",  "corrected": false },
-        { "id": 2, "value": "260年",  "corrected": false },
-        { "id": 3, "value": "1300年", "corrected": true  },
-        { "id": 4, "value": "2600年", "corrected": false }
+        { "id": 1, "value": "2600年", "corrected": false },
+        { "id": 2, "value": "130年",  "corrected": false },
+        { "id": 3, "value": "260年",  "corrected": false },
+        { "id": 4, "value": "1300年", "corrected": true  }
       ],
       "cleared": false
     }
