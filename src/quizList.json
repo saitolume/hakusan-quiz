@@ -7,8 +7,7 @@
       { "id": 2, "value": "地震", "corrected": false },
       { "id": 3, "value": "台風", "corrected": false },
       { "id": 4, "value": "火事", "corrected": false }
-    ],
-    "cleared": false
+    ]
   },
   "31cdf80cf1d3d8b42de8": {
     "number" : 2,
@@ -18,7 +17,6 @@
       { "id": 2, "value": "130年",  "corrected": false },
       { "id": 3, "value": "260年",  "corrected": false },
       { "id": 4, "value": "1300年", "corrected": true  }
-    ],
-    "cleared": false
+    ]
   }
 }

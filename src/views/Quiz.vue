@@ -1,17 +1,17 @@
 <template>
   <div class="quiz" data-app>
-    <h2 class="quiz-title">Q.{{ quizList.number }} {{ quizList.title }}</h2>
+    <h2 class="quiz-title">Q.{{ quiz.number }} {{ quiz.title }}</h2>
     <v-btn
-      v-for="(item) in quizList.choices"
+      v-for="item in quiz.choices"
       :key="item.id"
-      @click="chengeResult(item)"
+      @click="showResult(item)"
       color="#689F38"
       slot="activator"
       dark large round
     >
       {{ item.id }}. {{ item.value }}
     </v-btn>
-    <QuizResult :dialog="dialog" :cleared="quizList.cleared" @childs-event="dialog = false" />
+    <QuizResult :dialog="dialog" :cleared="cleared" @childs-event="dialog = false" />
   </div>
 </template>
 
@@ -25,21 +25,22 @@ export default {
   },
   data() {
     return {
-      dialog: false
+      dialog: false,
+      cleared: false
     }
   },
   methods: {
-    chengeResult(quiz) {
+    showResult(quiz) {
       this.dialog = true;
       if (quiz.corrected === true) {
-        this.quizList.cleared = true;
+        this.cleared = true;
       } else {
-        this.quizList.cleared = false;
+        this.cleared = false;
       }
     }
   },
   computed: {
-    quizList() {
+    quiz() {
       return this.$store.getters.quizList[this.$route.params.id];
     }
   }
