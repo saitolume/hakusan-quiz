@@ -18,6 +18,6 @@ export default new Router({
     { path: '/clear_list', name: 'clear_list', component: ClearList },
     { path: '/help',       name: 'help',       component: Help },
     { path: '/qr_reader',  name: 'qr_reader',  component: QrReader },
-    { path: '/quiz',       name: 'quiz',       component: Quiz },
+    { path: '/quiz/:id',   name: 'quiz',       component: Quiz },
   ],
 })
