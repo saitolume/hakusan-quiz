@@ -2,16 +2,16 @@
   <div class="quiz" data-app>
     <h2 class="quiz-title">Q.{{ quiz.number }} {{ quiz.title }}</h2>
     <v-btn
-      v-for="(item) in quiz.choices"
-      :key="item.id"
-      @click="chengeResult(item)"
+      v-for="choice in quiz.choices"
+      :key="choice.id"
+      @click="showResult(choice)"
       color="#689F38"
       slot="activator"
       dark large round
     >
-      {{ item.id }}. {{ item.value }}
+      {{ choice.id }}. {{ choice.value }}
     </v-btn>
-    <QuizResult :dialog="dialog" :cleared="quiz.cleared" @childs-event="dialog = false" />
+    <QuizResult :dialog="dialog" :cleared="cleared" @childs-event="dialog = false" />
   </div>
 </template>
 
@@ -26,28 +26,22 @@ export default {
   data() {
     return {
       dialog: false,
-      quiz: {
-        number: 1,
-        id: '',
-        title: '白山手取川ジオパークの「ジオ」の由来は何でしょう',
-        choices: [
-          { id: 1, value: '地球', corrected: true },
-          { id: 2, value: '地震', corrected: false },
-          { id: 3, value: '台風', corrected: false },
-          { id: 4, value: '火事', corrected: false },
-        ],
-        cleared: false,
-      },
+      cleared: false
     }
   },
   methods: {
-    chengeResult(item) {
+    showResult(choice) {
       this.dialog = true;
-      if (item.corrected === true) {
-        this.quiz.cleared = true;
+      if (choice.corrected === true) {
+        this.cleared = true;
       } else {
-        this.quiz.cleared = false;
+        this.cleared = false;
       }
+    }
+  },
+  computed: {
+    quiz() {
+      return this.$store.getters.quizList[this.$route.params.id];
     }
   }
 }

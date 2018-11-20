@@ -1,0 +1,22 @@
+{
+  "a64007c6d7a89ec2e086": {
+    "number" : 1,
+    "title": "白山手取川ジオパークの「ジオ」の由来は何でしょう",
+    "choices" : [
+      { "id": 1, "value": "地球", "corrected": true  },
+      { "id": 2, "value": "地震", "corrected": false },
+      { "id": 3, "value": "台風", "corrected": false },
+      { "id": 4, "value": "火事", "corrected": false }
+    ]
+  },
+  "31cdf80cf1d3d8b42de8": {
+    "number" : 2,
+    "title": "白山に人が入るようになってから今年で約何年でしょう",
+    "choices" : [
+      { "id": 1, "value": "2600年", "corrected": false },
+      { "id": 2, "value": "130年",  "corrected": false },
+      { "id": 3, "value": "260年",  "corrected": false },
+      { "id": 4, "value": "1300年", "corrected": true  }
+    ]
+  }
+}
