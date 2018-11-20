@@ -2,14 +2,14 @@
   <div class="quiz" data-app>
     <h2 class="quiz-title">Q.{{ quiz.number }} {{ quiz.title }}</h2>
     <v-btn
-      v-for="item in quiz.choices"
-      :key="item.id"
-      @click="showResult(item)"
+      v-for="choice in quiz.choices"
+      :key="choice.id"
+      @click="showResult(choice)"
       color="#689F38"
       slot="activator"
       dark large round
     >
-      {{ item.id }}. {{ item.value }}
+      {{ choice.id }}. {{ choice.value }}
     </v-btn>
     <QuizResult :dialog="dialog" :cleared="cleared" @childs-event="dialog = false" />
   </div>
@@ -30,9 +30,9 @@ export default {
     }
   },
   methods: {
-    showResult(quiz) {
+    showResult(choice) {
       this.dialog = true;
-      if (quiz.corrected === true) {
+      if (choice.corrected === true) {
         this.cleared = true;
       } else {
         this.cleared = false;
