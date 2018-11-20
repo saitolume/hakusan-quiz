@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    quizList: quizList.quiz
+    quizList: quizList
   },
   getters: {
     quizList: (state) => state.quizList
