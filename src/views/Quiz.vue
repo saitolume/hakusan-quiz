@@ -1,6 +1,7 @@
 <template>
   <div class="quiz" data-app>
-    <h2 class="quiz-title">Q.{{ quiz.number }} {{ quiz.title }}</h2>
+    <h2 class="quiz-num">Q.{{ quiz.number }}</h2>
+    <h2 class="quiz-title">{{ quiz.title }}</h2>
     <v-btn
       v-for="choice in quiz.choices"
       :key="choice.id"
@@ -48,10 +49,15 @@ export default {
 </script>
 
 <style scoped>
+.quiz-num {
+  margin: auto;
+  width: 75%;
+}
+
 .quiz-title {
   margin: auto;
   margin-bottom: 30px;
-  width: 80%;
+  width: 75%;
 }
 
 button.v-btn {
