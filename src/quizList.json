@@ -11,7 +11,7 @@
   },
   "2": {
     "number" : 2,
-    "title": "白山ジオパークは山の頂上から海まで○○である ○に入るものは何？",
+    "title": "白山ジオパークは山の頂上から海まで○mである○に入るものは何？",
     "choices" : [
       { "id": 1, "value": "1500m", "corrected": false },
       { "id": 2, "value": "2700m", "corrected": true  },
@@ -53,20 +53,20 @@
   "number" : 6,
     "title": "「海と扇状地エリア」である季節に見頃になる花は何？",
     "choices" : [
-      { "id": 1, "value": "もみじ", "corrected": false },
-      { "id": 2, "value": "さくら", "corrected": false },
+      { "id": 1, "value": "もみじ",   "corrected": false },
+      { "id": 2, "value": "さくら",   "corrected": true  },
       { "id": 3, "value": "いちょう", "corrected": false },
-      { "id": 4, "value": "なのはな", "corrected": true  }
+      { "id": 4, "value": "なのはな", "corrected": false }
     ]
   },
   "7": {
     "number" : 7,
     "title": "かつて「海と扇状地エリア」にある白山比咩神社を「○引神人」が支配していた ○に入るものは何？",
     "choices" : [
-      { "id": 1, "value": "水", "corrected": false },
+      { "id": 1, "value": "水", "corrected": true },
       { "id": 2, "value": "火", "corrected": false },
       { "id": 3, "value": "木", "corrected": false },
-      { "id": 4, "value": "月", "corrected": true  }
+      { "id": 4, "value": "月", "corrected": false  }
     ]
   }
 }
