@@ -1,5 +1,5 @@
 {
-  "a64007c6d7a89ec2e086": {
+  "1a8c40e105e93ac6856a": {
     "number" : 1,
     "title": "白山手取川ジオパークの「ジオ」の由来は何でしょう",
     "choices" : [
@@ -9,14 +9,64 @@
       { "id": 4, "value": "火事", "corrected": false }
     ]
   },
-  "31cdf80cf1d3d8b42de8": {
+  "f1ad65d9d29c9d8b154d": {
     "number" : 2,
-    "title": "白山に人が入るようになってから今年で約何年でしょう",
+    "title": "白山ジオパークは山の頂上から海まで○mである○に入るものは何？",
     "choices" : [
-      { "id": 1, "value": "2600年", "corrected": false },
-      { "id": 2, "value": "130年",  "corrected": false },
-      { "id": 3, "value": "260年",  "corrected": false },
-      { "id": 4, "value": "1300年", "corrected": true  }
+      { "id": 1, "value": "1500m", "corrected": false },
+      { "id": 2, "value": "2700m", "corrected": true  },
+      { "id": 3, "value": "2500m", "corrected": false },
+      { "id": 4, "value": "4700m", "corrected": false }
+    ]
+  },
+  "7fe9b47cc6c0836222af": {
+    "number" : 3,
+    "title": "白山ジオパークのテーマ「山−川−海 そして○ いのちを育む水の旅」 ○に入るものは何？",
+    "choices" : [
+      { "id": 1, "value": "雨",     "corrected": false },
+      { "id": 2, "value": "ひょう", "corrected": false },
+      { "id": 3, "value": "雪",     "corrected": true  },
+      { "id": 4, "value": "あられ", "corrected": false }
+    ]
+  },
+  "cb5f850a9811d2a4bc3a": {
+    "number" : 4,
+    "title": "海と扇状地エリアにある「金劔官不動滝」という滝の高さは何mか？",
+    "choices" : [
+      { "id": 1, "value": "9m",  "corrected": false },
+      { "id": 2, "value": "12m", "corrected": false },
+      { "id": 3, "value": "15m", "corrected": true  },
+      { "id": 4, "value": "18m", "corrected": false }
+    ]
+  },
+  "c70105f684e6816621d2": {
+    "number" : 5,
+    "title": "白山手取川ジオパークのキャラクターである「ゆきママ」が頭につけている花の種類は何？",
+    "choices" : [
+      { "id": 1, "value": "ひまわり", "corrected": false },
+      { "id": 2, "value": "さくら",   "corrected": false },
+      { "id": 3, "value": "パンジー", "corrected": false },
+      { "id": 4, "value": "アサガオ", "corrected": true  }
+    ]
+  },
+  "ac4c19dd36cd182841bc": {
+  "number" : 6,
+    "title": "「海と扇状地エリア」である季節に見頃になる花は何？",
+    "choices" : [
+      { "id": 1, "value": "もみじ",   "corrected": false },
+      { "id": 2, "value": "さくら",   "corrected": true  },
+      { "id": 3, "value": "いちょう", "corrected": false },
+      { "id": 4, "value": "なのはな", "corrected": false }
+    ]
+  },
+  "db8495fac3fbc6cd2569": {
+    "number" : 7,
+    "title": "かつて「海と扇状地エリア」にある白山比咩神社を「○引神人」が支配していた ○に入るものは何？",
+    "choices" : [
+      { "id": 1, "value": "水", "corrected": true },
+      { "id": 2, "value": "火", "corrected": false },
+      { "id": 3, "value": "木", "corrected": false },
+      { "id": 4, "value": "月", "corrected": false  }
     ]
   }
 }
