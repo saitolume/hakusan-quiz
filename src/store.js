@@ -37,10 +37,9 @@ export default new Vuex.Store({
         const user = result.user;
         const userData = {
           id:       user.uid,
-          email:    user.email,
-          name:     user.name,
+          name:     user.displayName,
           photoUrl: user.photoURL,
-        }
+        };
         commit('setUser', { userData });
       });
     },
@@ -48,6 +47,14 @@ export default new Vuex.Store({
       firebase.auth().signOut().then(() => {
         commit('clearUser');
       });
+    },
+    fetchUser({ commit }, { user }) {
+      const userData = {
+        id:       user.uid,
+        name:     user.displayName,
+        photoUrl: user.photoURL,
+      };
+      commit('setUser', { userData });
     }
   }
 })
