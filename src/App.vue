@@ -16,6 +16,7 @@ import CameraButton from '@/components/CameraButton.vue'
 
 export default {
   name: 'app',
+
   components: {
     Header,
     Footer,

@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import quizList from '../src/quizList.json'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 
 Vue.use(Vuex)
 
@@ -12,8 +14,9 @@ export default new Vuex.Store({
   },
 
   getters: {
-    quizList: (state) => state.quizList,
-    user:     (state) => state.user
+    quizList:   (state) => state.quizList,
+    isLoggedIn: (state) => state.isLoggedIn,
+    user:       (state) => state.user,
   },
 
   mutations: {
@@ -28,9 +31,9 @@ export default new Vuex.Store({
   },
 
   actions: {
-    logIn({ commit }) {
+    login({ commit }) {
       const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider).then((result) => {
+      firebase.auth().signInWithPopup(provider).then(result => {
         const user = result.user;
         const userData = {
           id:       user.uid,
@@ -41,7 +44,7 @@ export default new Vuex.Store({
         commit('setUser', { userData });
       });
     },
-    logOut({ commit }) {
+    logout({ commit }) {
       firebase.auth().signOut().then(() => {
         commit('clearUser');
       });
