@@ -30,14 +30,6 @@ export default {
 </script>
 
 <style scoped>
-.v-toolbar__title {
-  font-weight: bold;
-}
-
-button.v-btn {
-  margin: 0px;
-}
-
 .user-photo {
   border-radius: 50%;
 }
