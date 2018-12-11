@@ -14,24 +14,32 @@
     >
       {{ choice.id }}. {{ choice.value }}
     </v-btn>
-    <QuizResult :dialog="dialog" :cleared="cleared" @childs-event="dialog = false" />
+    <QuizResult
+      :dialog="dialog"
+      :cleared="cleared"
+      @childs-event="dialog = false"
+    />
   </div>
 </template>
 
 <script>
-import QuizResult from '@/components/QuizResult.vue'
+import QuizResult from '@/components/QuizResult.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Quiz',
+
   components: {
     QuizResult,
   },
+
   data() {
     return {
       dialog: false,
       cleared: false
     }
   },
+
   methods: {
     showResult(choice) {
       this.dialog = true;
@@ -42,10 +50,13 @@ export default {
       }
     }
   },
+
   computed: {
-    quiz() {
-      return this.$store.getters.quizList[this.$route.params.id];
-    }
+    ...mapGetters(['quiz'])
+  },
+
+  created() {
+    this.$store.dispatch('selectQuiz', { id: this.$route.params.id })
   }
 }
 </script>
