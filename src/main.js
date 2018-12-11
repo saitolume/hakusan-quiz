@@ -3,7 +3,7 @@ import App      from './App.vue'
 import firebase from 'firebase/app';
 import firebaseConfig from '../firebaseConfig.js'
 import router   from './router'
-import store    from './store'
+import store    from './store/index.js'
 import VueQrcodeReader from 'vue-qrcode-reader'
 import Vuetify  from 'vuetify'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'

@@ -1,22 +1,24 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import quizList from '../src/quizList.json'
-import firebase from 'firebase/app'
-import 'firebase/auth'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import quiz from './modules/quiz.js';
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  modules: {
+    quiz
+  },
+
   state: {
     isLoggedIn: false,
-    quiz: {},
     user: {}
   },
 
   getters: {
-    isLoggedIn: state => state.isLoggedIn,
-    quiz:       state => state.quiz,
-    user:       state => state.user,
+    isLoggedIn: (state) => state.isLoggedIn,
+    user:       (state) => state.user,
   },
 
   mutations: {
@@ -27,9 +29,6 @@ export default new Vuex.Store({
     clearUser(state) {
       state.user = null;
       state.isLoggedIn = false;
-    },
-    setQuiz(state, { quiz }) {
-      state.quiz = quiz;
     }
   },
 
@@ -58,10 +57,6 @@ export default new Vuex.Store({
         photoUrl: user.photoURL,
       };
       commit('setUser', { userData });
-    },
-    selectQuiz({ commit }, { id }) {
-      const quiz = quizList[id];
-      commit('setQuiz', { quiz });
     }
   }
 })
