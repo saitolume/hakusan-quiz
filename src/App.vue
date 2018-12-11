@@ -10,16 +10,27 @@
 </template>
 
 <script>
-import Footer       from '@/components/Footer.vue'
-import Header       from '@/components/Header.vue'
-import CameraButton from '@/components/CameraButton.vue'
+import Footer       from '@/components/Footer.vue';
+import Header       from '@/components/Header.vue';
+import CameraButton from '@/components/CameraButton.vue';
+import firebase     from 'firebase/app';
+import 'firebase/auth';
 
 export default {
   name: 'app',
+
   components: {
     Header,
     Footer,
     CameraButton,
+  },
+
+  created() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.$store.dispatch('fetchUser', { user });
+      }
+    });
   }
 }
 </script>
