@@ -9,14 +9,14 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     isLoggedIn: false,
-    quizList: quizList,
+    quiz: {},
     user: {}
   },
 
   getters: {
-    quizList:   (state) => state.quizList,
-    isLoggedIn: (state) => state.isLoggedIn,
-    user:       (state) => state.user,
+    isLoggedIn: state => state.isLoggedIn,
+    quiz:       state => state.quiz,
+    user:       state => state.user,
   },
 
   mutations: {
@@ -27,6 +27,9 @@ export default new Vuex.Store({
     clearUser(state) {
       state.user = null;
       state.isLoggedIn = false;
+    },
+    setQuiz(state, { quiz }) {
+      state.quiz = quiz;
     }
   },
 
@@ -55,6 +58,10 @@ export default new Vuex.Store({
         photoUrl: user.photoURL,
       };
       commit('setUser', { userData });
+    },
+    selectQuiz({ commit }, { id }) {
+      const quiz = quizList[id];
+      commit('setQuiz', { quiz });
     }
   }
 })
