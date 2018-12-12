@@ -28,7 +28,9 @@ export default {
   created() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.$store.dispatch('fetchUser', { user });
+        this.$store.dispatch('fetchAuthUser', { user });
+      } else {
+        this.$store.dispatch('deleteSession')
       }
     });
   }

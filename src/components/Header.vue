@@ -2,7 +2,7 @@
   <div class="header">
     <v-toolbar color="#689F38" height="55px" dark app>
       <v-btn v-if="isLoggedIn" flat icon>
-        <v-img class="user-photo" :src="user.photoUrl"></v-img>
+        <v-img class="user-photo" :src="authUser.photoUrl"></v-img>
       </v-btn>
       <v-spacer></v-spacer>
       <v-toolbar-items>
@@ -14,17 +14,26 @@
 </template>
 
 <script>
-import { mapActions, mapGetters} from 'vuex'
+import { mapGetters} from 'vuex'
+import axios from 'axios'
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 export default {
   name: 'Header',
 
   computed: {
-    ...mapGetters(['isLoggedIn', 'user'])
+    ...mapGetters(['isLoggedIn', 'authUser'])
   },
 
   methods: {
-    ...mapActions(['login', 'logout'])
+    login() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider);
+    },
+    logout() {
+      firebase.auth().signOut();
+    }
   }
 }
 </script>
