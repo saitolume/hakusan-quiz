@@ -19,6 +19,8 @@ import axios from 'axios'
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
+const BASE_URL = 'https://hakusan-quiz.firebaseio.com'
+
 export default {
   name: 'Header',
 
@@ -29,7 +31,28 @@ export default {
   methods: {
     login() {
       const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider);
+      firebase.auth().signInWithPopup(provider).then(result => {
+        const user = result.user;
+        axios.get(`${BASE_URL}/users/${user.uid}.json`).then(response => {
+          if (!response.data) {
+            const users = {}
+            users[user.uid] = {
+              "answer_history": [
+                {},
+                { "answer_count": 0, "cleared": false },
+                { "answer_count": 0, "cleared": false },
+                { "answer_count": 0, "cleared": false },
+                { "answer_count": 0, "cleared": false },
+                { "answer_count": 0, "cleared": false },
+                { "answer_count": 0, "cleared": false },
+                { "answer_count": 0, "cleared": false },
+              ],
+              "score": 0
+            }
+            axios.patch(`${BASE_URL}/users.json`, users)
+          }
+        })
+      });
     },
     logout() {
       firebase.auth().signOut();
