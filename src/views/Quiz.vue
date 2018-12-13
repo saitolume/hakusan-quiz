@@ -73,6 +73,7 @@ export default {
           this.resultScore = 1;
         }
         await axios.patch(`${USER_URL}.json`, { score });
+        await axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { cleared: true });
       } else {
         // 誤答のときはfailed_countを+1する
         failed_count++;
