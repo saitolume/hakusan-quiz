@@ -17,6 +17,7 @@
     <QuizResult
       :dialog="dialog"
       :cleared="cleared"
+      :score="resultScore"
       @childs-event="dialog = false"
     />
   </div>
@@ -37,17 +38,17 @@ export default {
   data() {
     return {
       dialog:  false,
-      cleared: false
+      cleared: false,
+      resultScore: 0,
     }
   },
 
   methods: {
     async sendResult(choice) {
-      this.showResult(choice);
       const USER_URL = `https://hakusan-quiz.firebaseio.com/users/${this.authUser.id}`;
       let score;
       let failed_count;
-      // Realtime Databaseからscoreとfailed_countを取得
+      // Realtime Databaseからscoreとfailed_countを取得する
       await axios.get(`${USER_URL}/score.json`)
         .then(response => {
           score = response.data;
@@ -56,23 +57,28 @@ export default {
         .then(response => {
           failed_count = response.data;
         });
-      // failed_countで条件分岐をしてscoreを加算
       if (choice.corrected === true) {
+        // 正解のときはfailed_countで分岐した条件によってscoreを加算する
         if (failed_count === 0) {
           score += 4;
+          this.resultScore = 4;
         } else if (failed_count === 1) {
           score += 3;
+          this.resultScore = 3;
         } else if (failed_count === 2) {
           score += 2;
+          this.resultScore = 2;
         } else {
           score += 1;
+          this.resultScore = 1;
         }
         await axios.patch(`${USER_URL}.json`, { score });
       } else {
-        // 間違えたときにfailed_countを+1して更新
+        // 誤答のときはfailed_countを+1する
         failed_count++;
         await axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { failed_count });
       }
+      this.showResult(choice);
     },
     showResult(choice) {
       this.dialog = true;

@@ -4,7 +4,7 @@
       <v-card>
         <div v-if="cleared">
           <v-card-title>正解</v-card-title>
-          <v-card-text>おめでとう！10ポイントゲット！</v-card-text>
+          <v-card-text>おめでとう！{{ score }}ポイントゲット！</v-card-text>
         </div>
         <div v-else>
           <v-card-title>不正解</v-card-title>
@@ -25,7 +25,8 @@ export default {
   name: 'QuizResult',
   props: {
     dialog:  Boolean,
-    cleared: Boolean
+    cleared: Boolean,
+    score:   Number
   },
   methods: {
     closeDialog() {
