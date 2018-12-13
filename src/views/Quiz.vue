@@ -4,8 +4,10 @@
       <h2 class="quiz-title__num">Q.{{ quiz.number }}</h2>
       <h2 class="quiz-title__text">{{ quiz.title }}</h2>
     </div>
+    <p v-if="disabled">この問題は解答済みです</p>
     <v-btn
       v-for="choice in quiz.choices"
+      :disabled="disabled"
       :key="choice.id"
       @click="sendResult(choice)"
       color="#689F38"
@@ -37,8 +39,9 @@ export default {
 
   data() {
     return {
-      dialog:  false,
-      cleared: false,
+      cleared:  false,
+      dialog:   false,
+      disabled: false,
       resultScore: 0,
     }
   },
@@ -73,6 +76,7 @@ export default {
           this.resultScore = 1;
         }
         await axios.patch(`${USER_URL}.json`, { score });
+        await axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { cleared: true });
       } else {
         // 誤答のときはfailed_countを+1する
         failed_count++;
@@ -88,6 +92,19 @@ export default {
 
   computed: {
     ...mapGetters(['quiz', 'authUser']),
+  },
+
+  async mounted() {
+    const USER_URL = `https://hakusan-quiz.firebaseio.com/users/${this.authUser.id}`;
+    await axios.get(`${USER_URL}/answer_history/${this.quiz.number}/cleared.json`)
+      .then(response => {
+        if (response.data === true) {
+          // クリア済みクイズを解かせないためにリダイレクトで対処
+          // this.$router.push('/');
+          // ボタンを無効化して対処
+          this.disabled = true
+        }
+      });
   },
 
   created() {
