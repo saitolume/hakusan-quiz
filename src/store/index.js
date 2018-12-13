@@ -31,7 +31,7 @@ export default new Vuex.Store({
   },
 
   actions: {
-    delete({ commit }) {
+    deleteSession({ commit }) {
       commit('clearAuthUser');
     },
     fetchAuthUser({ commit }, { user }) {

@@ -18,13 +18,13 @@ import { QrcodeStream } from 'vue-qrcode-reader'
 
 export default {
   components: { QrcodeStream },
-  data () {
+  data() {
     return {
       result: ''
     }
   },
   methods: {
-    onDecode (result) {
+    onDecode(result) {
       this.result = result;
     }
   }
