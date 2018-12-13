@@ -43,33 +43,40 @@ export default {
 
   methods: {
     async sendResult(choice) {
-      this.dialog = true;
-      choice.corrected ? this.cleared = true : ''
+      this.showResult(choice);
       const USER_URL = `https://hakusan-quiz.firebaseio.com/users/${this.authUser.id}`;
+      let score;
+      let failed_count;
+      // Realtime Databaseからscoreとfailed_countを取得
+      await axios.get(`${USER_URL}/score.json`)
+        .then(response => {
+          score = response.data;
+        });
       await axios.get(`${USER_URL}/answer_history/${this.quiz.number}/failed_count.json`)
         .then(response => {
-          let failed_count = response.data;
-          axios.get(`${USER_URL}/score.json`)
-            .then(response => {
-              let score = response.data;
-              if (choice.corrected === true) {
-                if (failed_count === 0) {
-                  score += 4;
-                } else if (failed_count === 1) {
-                  score += 3;
-                } else if (failed_count === 2) {
-                  score += 2;
-                } else {
-                  score += 1;
-                }
-                axios.patch(`${USER_URL}.json`, { score });
-              } else {
-                this.cleared = false;
-                failed_count++;
-                axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { failed_count });
-              }
-            });
+          failed_count = response.data;
         });
+      // failed_countで条件分岐をしてscoreを加算
+      if (choice.corrected === true) {
+        if (failed_count === 0) {
+          score += 4;
+        } else if (failed_count === 1) {
+          score += 3;
+        } else if (failed_count === 2) {
+          score += 2;
+        } else {
+          score += 1;
+        }
+        await axios.patch(`${USER_URL}.json`, { score });
+      } else {
+        // 間違えたときにfailed_countを+1して更新
+        failed_count++;
+        await axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { failed_count });
+      }
+    },
+    showResult(choice) {
+      this.dialog = true;
+      this.cleared = choice.corrected ? true : false
     }
   },
 
