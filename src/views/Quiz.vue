@@ -7,7 +7,7 @@
     <v-btn
       v-for="choice in quiz.choices"
       :key="choice.id"
-      @click="showResult(choice)"
+      @click="sendResult(choice)"
       color="#689F38"
       slot="activator"
       dark large round
@@ -25,6 +25,7 @@
 <script>
 import QuizResult from '@/components/QuizResult.vue';
 import { mapGetters } from 'vuex';
+import axios from 'axios'
 
 export default {
   name: 'Quiz',
@@ -35,24 +36,45 @@ export default {
 
   data() {
     return {
-      dialog: false,
+      dialog:  false,
       cleared: false
     }
   },
 
   methods: {
-    showResult(choice) {
+    async sendResult(choice) {
       this.dialog = true;
-      if (choice.corrected === true) {
-        this.cleared = true;
-      } else {
-        this.cleared = false;
-      }
+      choice.corrected ? this.cleared = true : ''
+      const USER_URL = `https://hakusan-quiz.firebaseio.com/users/${this.authUser.id}`;
+      await axios.get(`${USER_URL}/answer_history/${this.quiz.number}/failed_count.json`)
+        .then(response => {
+          let failed_count = response.data;
+          axios.get(`${USER_URL}/score.json`)
+            .then(response => {
+              let score = response.data;
+              if (choice.corrected === true) {
+                if (failed_count === 0) {
+                  score += 4;
+                } else if (failed_count === 1) {
+                  score += 3;
+                } else if (failed_count === 2) {
+                  score += 2;
+                } else {
+                  score += 1;
+                }
+                axios.patch(`${USER_URL}.json`, { score });
+              } else {
+                this.cleared = false;
+                failed_count++;
+                axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { failed_count });
+              }
+            });
+        });
     }
   },
 
   computed: {
-    ...mapGetters(['quiz'])
+    ...mapGetters(['quiz', 'authUser']),
   },
 
   created() {
