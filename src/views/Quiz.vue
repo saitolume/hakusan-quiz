@@ -4,7 +4,7 @@
       <h2 class="quiz-title__num">Q.{{ quiz.number }}</h2>
       <h2 class="quiz-title__text">{{ quiz.title }}</h2>
     </div>
-    <div v-if="disabled">この問題は解答済みです</div>
+    <p v-if="disabled">この問題は解答済みです</p>
     <v-btn
       v-for="choice in quiz.choices"
       :disabled="disabled"
@@ -95,7 +95,8 @@ export default {
   },
 
   async mounted() {
-    axios.get(`https://hakusan-quiz.firebaseio.com/users/${this.authUser.id}/answer_history/${this.quiz.number}/cleared.json`)
+    const USER_URL = `https://hakusan-quiz.firebaseio.com/users/${this.authUser.id}`;
+    await axios.get(`${USER_URL}/answer_history/${this.quiz.number}/cleared.json`)
       .then(response => {
         if (response.data === true) {
           // クリア済みクイズを解かせないためにリダイレクトで対処
