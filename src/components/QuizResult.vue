@@ -3,11 +3,11 @@
     <v-dialog v-model="dialog" persistent>
       <v-card>
         <div v-if="cleared">
-          <v-card-title class="headline">正解</v-card-title>
+          <v-card-title>正解</v-card-title>
           <v-card-text>おめでとう！10ポイントゲット！</v-card-text>
         </div>
         <div v-else>
-          <v-card-title class="headline">不正解</v-card-title>
+          <v-card-title>不正解</v-card-title>
           <v-card-text>残念！ヒントを探してみよう！</v-card-text>
         </div>
         <v-card-actions>
@@ -24,7 +24,7 @@
 export default {
   name: 'QuizResult',
   props: {
-    dialog: Boolean,
+    dialog:  Boolean,
     cleared: Boolean
   },
   methods: {

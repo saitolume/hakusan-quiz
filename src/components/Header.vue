@@ -19,7 +19,7 @@ import axios from 'axios'
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
-const BASE_URL = 'https://hakusan-quiz.firebaseio.com'
+const BASE_URL = 'https://hakusan-quiz.firebaseio.com';
 
 export default {
   name: 'Header',
@@ -39,13 +39,13 @@ export default {
             users[user.uid] = {
               "answer_history": [
                 {},
-                { "answer_count": 0, "cleared": false },
-                { "answer_count": 0, "cleared": false },
-                { "answer_count": 0, "cleared": false },
-                { "answer_count": 0, "cleared": false },
-                { "answer_count": 0, "cleared": false },
-                { "answer_count": 0, "cleared": false },
-                { "answer_count": 0, "cleared": false },
+                { "failed_count": 0, "cleared": false },
+                { "failed_count": 0, "cleared": false },
+                { "failed_count": 0, "cleared": false },
+                { "failed_count": 0, "cleared": false },
+                { "failed_count": 0, "cleared": false },
+                { "failed_count": 0, "cleared": false },
+                { "failed_count": 0, "cleared": false },
               ],
               "score": 0
             }
