@@ -1,7 +1,5 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import firebase from 'firebase/app';
-import 'firebase/auth';
 import quiz from './modules/quiz.js';
 
 Vue.use(Vuex)
@@ -13,50 +11,36 @@ export default new Vuex.Store({
 
   state: {
     isLoggedIn: false,
-    user: {}
+    authUser: {}
   },
 
   getters: {
-    isLoggedIn: (state) => state.isLoggedIn,
-    user:       (state) => state.user,
+    isLoggedIn: state => state.isLoggedIn,
+    authUser:   state => state.authUser,
   },
 
   mutations: {
-    setUser(state, { userData }) {
-      state.user = userData;
+    setAuthUser(state, { userData }) {
+      state.authUser = userData;
       state.isLoggedIn = true;
     },
-    clearUser(state) {
-      state.user = null;
+    clearAuthUser(state) {
+      state.authUser = null;
       state.isLoggedIn = false;
     }
   },
 
   actions: {
-    login({ commit }) {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider).then(result => {
-        const user = result.user;
-        const userData = {
-          id:       user.uid,
-          name:     user.displayName,
-          photoUrl: user.photoURL,
-        };
-        commit('setUser', { userData });
-      });
+    delete({ commit }) {
+      commit('clearAuthUser');
     },
-    logout({ commit }) {
-      firebase.auth().signOut().then(() => {
-        commit('clearUser');
-      });
-    },
-    fetchUser({ commit }, { user }) {
+    fetchAuthUser({ commit }, { user }) {
       const userData = {
         id:       user.uid,
         name:     user.displayName,
         photoUrl: user.photoURL,
       };
-      commit('setUser', { userData });
+      commit('setAuthUser', { userData });
     }
   }
 })
