@@ -50,37 +50,39 @@ export default {
     async sendResult(choice) {
       const USER_URL = `https://hakusan-quiz.firebaseio.com/users/${this.authUser.id}`;
       let score;
-      let failed_count;
-      // Realtime Databaseからscoreとfailed_countを取得する
+      let failedCount;
+      // Realtime DatabaseからscoreとfailedCountを取得する
       await axios.get(`${USER_URL}/score.json`)
         .then(response => {
           score = response.data;
         });
       await axios.get(`${USER_URL}/answer_history/${this.quiz.number}/failed_count.json`)
         .then(response => {
-          failed_count = response.data;
+          failedCount = response.data;
         });
       if (choice.corrected === true) {
-        // 正解のときはfailed_countで分岐した条件によってscoreを加算する
-        if (failed_count === 0) {
+        // 正解のときはfailedCountで分岐した条件によってscoreを加算する
+        if (failedCount === 0) {
           score += 4;
           this.resultScore = 4;
-        } else if (failed_count === 1) {
+        } else if (failedCount === 1) {
           score += 3;
           this.resultScore = 3;
-        } else if (failed_count === 2) {
+        } else if (failedCount === 2) {
           score += 2;
           this.resultScore = 2;
-        } else {
+        } else if (failedCount === 1) {
           score += 1;
           this.resultScore = 1;
+        } else {
+          alert('エラーが発生しました')
         }
         await axios.patch(`${USER_URL}.json`, { score });
         await axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { cleared: true });
       } else {
-        // 誤答のときはfailed_countを+1する
-        failed_count++;
-        await axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { failed_count });
+        // 誤答のときはfailedCountを+1する
+        failedCount++;
+        await axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { failed_count: failedCount });
       }
       this.showResult(choice);
     },
