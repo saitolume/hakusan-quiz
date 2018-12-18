@@ -7,7 +7,8 @@
       { "id": 2, "value": "地震", "corrected": false },
       { "id": 3, "value": "台風", "corrected": false },
       { "id": 4, "value": "火事", "corrected": false }
-    ]
+    ],
+    "hint": "8 7 5 6 → 1x8 1x7 1x5 2x3"
   },
   "f1ad65d9d29c9d8b154d": {
     "number" : 2,
@@ -17,7 +18,8 @@
       { "id": 2, "value": "2700m", "corrected": true  },
       { "id": 3, "value": "2500m", "corrected": false },
       { "id": 4, "value": "4700m", "corrected": false }
-    ]
+    ],
+    "hint": "同時に10人の話を聞ける人やで"
   },
   "7fe9b47cc6c0836222af": {
     "number" : 3,
@@ -27,7 +29,8 @@
       { "id": 2, "value": "ひょう", "corrected": false },
       { "id": 3, "value": "雪",     "corrected": true  },
       { "id": 4, "value": "あられ", "corrected": false }
-    ]
+    ],
+    "hint": "来年から年号が変わりますね"
   },
   "cb5f850a9811d2a4bc3a": {
     "number" : 4,
@@ -37,7 +40,8 @@
       { "id": 2, "value": "12m", "corrected": false },
       { "id": 3, "value": "15m", "corrected": true  },
       { "id": 4, "value": "18m", "corrected": false }
-    ]
+    ],
+    "hint": "漬物には重しが必要 重しは石ですよね"
   },
   "c70105f684e6816621d2": {
     "number" : 5,
@@ -47,7 +51,8 @@
       { "id": 2, "value": "さくら",   "corrected": false },
       { "id": 3, "value": "パンジー", "corrected": false },
       { "id": 4, "value": "アサガオ", "corrected": true  }
-    ]
+    ],
+    "hint": "アメリカ、ブラジル、ペルー、エチオピア"
   },
   "ac4c19dd36cd182841bc": {
   "number" : 6,
@@ -57,7 +62,8 @@
       { "id": 2, "value": "さくら",   "corrected": true  },
       { "id": 3, "value": "いちょう", "corrected": false },
       { "id": 4, "value": "なのはな", "corrected": false }
-    ]
+    ],
+    "hint": "ここまでたどり着いたあなたならヒントは必要ないでしょう！"
   },
   "db8495fac3fbc6cd2569": {
     "number" : 7,
@@ -67,6 +73,7 @@
       { "id": 2, "value": "火", "corrected": false },
       { "id": 3, "value": "木", "corrected": false },
       { "id": 4, "value": "月", "corrected": false  }
-    ]
+    ],
+    "hint": "よこななめななめ"
   }
 }
