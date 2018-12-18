@@ -8,8 +8,10 @@
       <v-btn icon @click="arrowDown = !arrowDown">
         <v-icon>{{ arrowDown ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
       </v-btn>
+      <p v-if="!arrowDown">ヒントを確認する</p>
+      <p v-if="arrowDown">ヒント閉じる</p>
     </v-card-actions>
-    <v-card-text v-show="arrowDown">説明文</v-card-text>
+    <v-card-text v-show="arrowDown">{{ quiz.hint }}</v-card-text>
   </v-card>
 </template>
 
