@@ -20,6 +20,7 @@
       :dialog="dialog"
       :cleared="cleared"
       :score="resultScore"
+      :hint="quiz.hint"
       @childs-event="dialog = false"
     />
   </div>

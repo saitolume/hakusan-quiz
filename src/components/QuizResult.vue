@@ -4,11 +4,12 @@
       <v-card>
         <div v-if="cleared">
           <v-card-title>正解</v-card-title>
-          <v-card-text>おめでとう！{{ score }}ポイントゲット！</v-card-text>
+          <!-- <v-card-text>おめでとう！{{ score }}ポイントゲット！</v-card-text> -->
+          <v-card-text>ヒント：{{ hint }}</v-card-text>
         </div>
         <div v-else>
           <v-card-title>不正解</v-card-title>
-          <v-card-text>残念！ヒントを探してみよう！</v-card-text>
+          <v-card-text>残念…もう一度挑戦しよう！</v-card-text>
         </div>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -26,6 +27,7 @@ export default {
   props: {
     dialog:  Boolean,
     cleared: Boolean,
+    hint:    String,
     score:   Number
   },
   methods: {

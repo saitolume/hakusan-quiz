@@ -5,7 +5,8 @@ export default {
     // id: '',
     number: 0,
     title: '',
-    choices: [] 
+    choices: [],
+    hint: ''
   },
   getters: {
     quiz: (state) => {
@@ -14,6 +15,7 @@ export default {
         number:  state.number,
         title:   state.title,
         choices: state.choices,
+        hint:    state.hint
       }
       return quiz
     }
@@ -24,6 +26,7 @@ export default {
       state.number = quiz.number;
       state.title = quiz.title;
       state.choices = quiz.choices;
+      state.hint = quiz.hint;
     }
   },
   actions: {
