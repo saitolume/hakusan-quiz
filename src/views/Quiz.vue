@@ -1,7 +1,7 @@
 <template>
   <div class="quiz" data-app>
     <div class="quiz-title">
-      <h2 class="quiz-title__num">Q.{{ quiz.number }}</h2>
+      <h2 class="quiz-title__num">ヒントクイズ.{{ quiz.number }}</h2>
       <h2 class="quiz-title__text">{{ quiz.title }}</h2>
     </div>
     <p v-if="disabled">この問題は解答済みです</p>
@@ -117,6 +117,10 @@ export default {
 </script>
 
 <style scoped>
+.quiz {
+  margin-top: 90px;
+
+}
 .quiz-title {
   margin: auto;
   margin-bottom: 30px;
