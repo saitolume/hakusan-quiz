@@ -56,7 +56,7 @@ export default {
         .then(response => {
           score = response.data;
         });
-      await axios.get(`${USER_URL}/answer_history/${this.quiz.number}/failedCount.json`)
+      await axios.get(`${USER_URL}/answer_history/${this.quiz.number}/failed_count.json`)
         .then(response => {
           failedCount = response.data;
         });
@@ -82,7 +82,7 @@ export default {
       } else {
         // 誤答のときはfailedCountを+1する
         failedCount++;
-        await axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { failedCount });
+        await axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { failed_count: failedCount });
       }
       this.showResult(choice);
     },
