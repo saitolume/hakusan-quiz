@@ -9,9 +9,7 @@
         <v-icon>{{ arrowDown ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
       </v-btn>
     </v-card-actions>
-    <v-card-text v-show="arrowDown">
-      説明文
-    </v-card-text>
+    <v-card-text v-show="arrowDown">説明文</v-card-text>
   </v-card>
 </template>
 
@@ -45,11 +43,13 @@ export default {
   },
 
   async created() {
-    const USER_URL = `https://hakusan-quiz.firebaseio.com/users/${this.authUser.id}`
-    await axios.get(`${USER_URL}/answer_history/${this.quiz.number}/cleared.json`)
-      .then(response => {
-        this.showed = response.data
-      })
+    if (this.authUser) {
+      const USER_URL = `https://hakusan-quiz.firebaseio.com/users/${this.authUser.id}`
+      await axios.get(`${USER_URL}/answer_history/${this.quiz.number}/cleared.json`)
+        .then(response => {
+          this.showed = response.data
+        })
+    }
   }
 }
 </script>

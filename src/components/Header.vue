@@ -39,13 +39,13 @@ export default {
             users[user.uid] = {
               "answer_history": [
                 {},
-                { "failed_count": 0, "cleared": false },
-                { "failed_count": 0, "cleared": false },
-                { "failed_count": 0, "cleared": false },
-                { "failed_count": 0, "cleared": false },
-                { "failed_count": 0, "cleared": false },
-                { "failed_count": 0, "cleared": false },
-                { "failed_count": 0, "cleared": false },
+                { "failedCount": 0, "cleared": false },
+                { "failedCount": 0, "cleared": false },
+                { "failedCount": 0, "cleared": false },
+                { "failedCount": 0, "cleared": false },
+                { "failedCount": 0, "cleared": false },
+                { "failedCount": 0, "cleared": false },
+                { "failedCount": 0, "cleared": false },
               ],
               "score": 0
             }
