@@ -4,7 +4,6 @@
       <v-card>
         <div v-if="cleared">
           <v-card-title>正解</v-card-title>
-          <!-- <v-card-text>おめでとう！{{ score }}ポイントゲット！</v-card-text> -->
           <v-card-text>ヒント：{{ hint }}</v-card-text>
         </div>
         <div v-else>
