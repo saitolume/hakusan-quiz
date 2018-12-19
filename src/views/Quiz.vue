@@ -1,7 +1,7 @@
 <template>
   <div class="quiz" data-app>
     <div class="quiz-title">
-      <h2 class="quiz-title__num">Q.{{ quiz.number }}</h2>
+      <h2 class="quiz-title__num">ヒントクイズ.{{ quiz.number }}</h2>
       <h2 class="quiz-title__text">{{ quiz.title }}</h2>
     </div>
     <p v-if="disabled">この問題は解答済みです</p>
@@ -9,7 +9,7 @@
       v-for="choice in quiz.choices"
       :disabled="disabled"
       :key="choice.id"
-      @click="sendResult(choice)"
+      @click="showResult(choice)"
       color="#689F38"
       slot="activator"
       dark large round
@@ -20,6 +20,7 @@
       :dialog="dialog"
       :cleared="cleared"
       :score="resultScore"
+      :hint="quiz.hint"
       @childs-event="dialog = false"
     />
   </div>
@@ -47,45 +48,45 @@ export default {
   },
 
   methods: {
-    async sendResult(choice) {
-      const USER_URL = `https://hakusan-quiz.firebaseio.com/users/${this.authUser.id}`;
-      let score;
-      let failedCount;
-      // Realtime DatabaseからscoreとfailedCountを取得する
-      await axios.get(`${USER_URL}/score.json`)
-        .then(response => {
-          score = response.data;
-        });
-      await axios.get(`${USER_URL}/answer_history/${this.quiz.number}/failed_count.json`)
-        .then(response => {
-          failedCount = response.data;
-        });
-      if (choice.corrected === true) {
-        // 正解のときはfailedCountで分岐した条件によってscoreを加算する
-        if (failedCount === 0) {
-          score += 4;
-          this.resultScore = 4;
-        } else if (failedCount === 1) {
-          score += 3;
-          this.resultScore = 3;
-        } else if (failedCount === 2) {
-          score += 2;
-          this.resultScore = 2;
-        } else if (failedCount === 1) {
-          score += 1;
-          this.resultScore = 1;
-        } else {
-          alert('エラーが発生しました')
-        }
-        await axios.patch(`${USER_URL}.json`, { score });
-        await axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { cleared: true });
-      } else {
-        // 誤答のときはfailedCountを+1する
-        failedCount++;
-        await axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { failed_count: failedCount });
-      }
-      this.showResult(choice);
-    },
+    // async sendResult(choice) {
+    //   const USER_URL = `https://hakusan-quiz.firebaseio.com/users/${this.authUser.id}`;
+    //   let score;
+    //   let failedCount;
+    //   // Realtime DatabaseからscoreとfailedCountを取得する
+    //   await axios.get(`${USER_URL}/score.json`)
+    //     .then(response => {
+    //       score = response.data;
+    //     });
+    //   await axios.get(`${USER_URL}/answer_history/${this.quiz.number}/failed_count.json`)
+    //     .then(response => {
+    //       failedCount = response.data;
+    //     });
+    //   if (choice.corrected === true) {
+    //     // 正解のときはfailedCountで分岐した条件によってscoreを加算する
+    //     if (failedCount === 0) {
+    //       score += 4;
+    //       this.resultScore = 4;
+    //     } else if (failedCount === 1) {
+    //       score += 3;
+    //       this.resultScore = 3;
+    //     } else if (failedCount === 2) {
+    //       score += 2;
+    //       this.resultScore = 2;
+    //     } else if (failedCount === 1) {
+    //       score += 1;
+    //       this.resultScore = 1;
+    //     } else {
+    //       alert('エラーが発生しました')
+    //     }
+    //     await axios.patch(`${USER_URL}.json`, { score });
+    //     await axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { cleared: true });
+    //   } else {
+    //     // 誤答のときはfailedCountを+1する
+    //     failedCount++;
+    //     await axios.patch(`${USER_URL}/answer_history/${this.quiz.number}.json`, { failed_count: failedCount });
+    //   }
+    //   this.showResult(choice);
+    // },
     showResult(choice) {
       this.dialog = true;
       this.cleared = choice.corrected ? true : false
@@ -116,6 +117,10 @@ export default {
 </script>
 
 <style scoped>
+.quiz {
+  margin-top: 90px;
+
+}
 .quiz-title {
   margin: auto;
   margin-bottom: 30px;

@@ -6,11 +6,6 @@
         <v-icon>home</v-icon>
       </v-btn>
 
-      <v-btn color="white" to="/area" flat>
-        <span>エリア</span>
-        <v-icon>place</v-icon>
-      </v-btn>
-
       <v-btn color="white" to="/clear_list" flat>
         <span>クリア済み</span>
         <v-icon>done_outline</v-icon>
